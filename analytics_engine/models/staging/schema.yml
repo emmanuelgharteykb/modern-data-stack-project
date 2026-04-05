@@ -1,0 +1,19 @@
+version: 2
+
+models:
+  - name: stg_sales
+    description: "Cleaned retail sales data with 397,924 rows. Filtered for positive quantities and valid customer IDs."
+    columns:
+      - name: invoice_id
+        description: "The unique identifier for the transaction."
+        tests:
+          - not_null
+      - name: customer_id
+        description: "The unique ID for the customer. NULLs have been removed."
+        tests:
+          - not_null
+      - name: total_spent
+        description: "Calculated as Quantity * UnitPrice."
+
+  - name: fct_customer_rfm
+    description: "Final Gold layer table ranking customers by their total spend (Monetary value)."

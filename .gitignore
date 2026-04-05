@@ -1,13 +1,26 @@
-# Database file (Never push your raw data or DB to GitHub)
-*.duckdb
-*.csv
+# --- Python & Environment ---
+# Exclude the virtual environment and compiled Python files
+**/venv/
+**/.venv/
+**/__pycache__/
+**/*.pyc
 
-# Python Virtual Environment
-dbt-env/
-__pycache__/
+# --- dbt & Databases ---
+# Exclude the compiled 'target' folder (it's recreated every time you run dbt)
+**/target/
+# Exclude logs and packages
+**/logs/
+**/dbt_packages/
+# CRITICAL: Exclude the local DuckDB database file (too large for GitHub)
+**/dev.duckdb
+**/dev.duckdb.wal
 
-# dbt Logs and Compiled files (These change every time you run dbt)
-logs/
-target/
-dbt_modules/
-dbt_packages/
+# --- Data Files ---
+# Exclude raw CSV files in any 'data' or 'seeds' folder
+**/data/*.csv
+**/seeds/*.csv
+
+# --- IDE & OS ---
+# Exclude VS Code settings and Mac system files
+.vscode/
+.DS_Store

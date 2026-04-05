@@ -1,0 +1,14 @@
+name: 'retail_warehouse'
+version: '1.0.0'
+config-version: 2
+profile: 'retail_project'
+
+model-paths: ["models"]
+seed-paths: ["seeds"]
+
+models:
+  retail_warehouse:
+    staging:
+      +materialized: view
+    marts:
+      +materialized: table
